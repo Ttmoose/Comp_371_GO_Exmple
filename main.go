@@ -59,7 +59,7 @@ func findPrimes(limit int) []int {
 	var workers sync.WaitGroup
 	workers.Add(workerCount)
 
-	for range workerCount {
+	for i := 0; i < workerCount; i++ {
 		go func() {
 			defer workers.Done()
 			for candidate := range jobs {
